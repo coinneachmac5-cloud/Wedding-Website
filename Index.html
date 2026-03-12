@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eilidh & Ally | Our Love Story</title>
+  <meta name="description" content="A romantic wedding website for Eilidh and Ally with elegant scroll animations and scrapbook-inspired styling." />
+
+  <!-- ========================================= -->
+  <!-- GOOGLE FONTS                               -->
+  <!-- Script font for headings, serif for body  -->
+  <!-- ========================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================= */
+    /* ROOT VARIABLES / COLOUR SYSTEM            */
+    /* Easy place to update the whole palette    */
+    /* ========================================= */
+    :root {
+      --sage: #7f866d;
+      --olive: #6a7059;
+      --beige: #ddd1bf;
+      --cream: #f7f1e7;
+      --paper: #fbf7f1;
+      --blush: #ead8d4;
+      --rose-dust: #d9c4be;
+      --stone: #5f584f;
+      --text: #433d36;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(71, 56, 39, 0.12);
+      --shadow-soft: 0 10px 30px rgba(71, 56, 39, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max-width: 1200px;
+      --nav-height: 80px;
+      --transition: 0.75s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    /* ========================================= */
+    /* BASE / RESET                              */
+    /* ========================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Cormorant Garamond", serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ========================================= */
+    /* GLOBAL DECORATIVE BACKGROUND BLOBS        */
+    /* Soft blurred colour shapes for atmosphere */
+    /* ========================================= */
+    .page-blur {
+      position: fixed;
+      inset: 0;
+      z-index: -5;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-blur::before,
+    .page-blur::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.45;
+    }
+
+    .page-blur::before {
+      width: 460px;
+      height: 460px;
+      background: var(--blush);
+      top: -80px;
+      left: -120px;
+    }
+
+    .page-blur::after {
+      width: 420px;
+      height: 420px;
+      background: var(--beige);
+      bottom: -120px;
+      right: -100px;
+    }
+
+    /* ========================================= */
+    /* UTILITIES                                 */
+    /* ========================================= */
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 110px 0;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(67, 61, 54, 0.7);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .script {
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      font-size: 1.1rem;
+      color: rgba(67, 61, 54, 0.82);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      transition: 0.35s ease;
+    }
+
+    .btn-primary {
+      background: var(--blush);
+      color: var(--stone);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #f2e5e1;
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.09);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.16);
+      transform: translateY(-2px);
+    }
+
+    .card {
+      background: rgba(255,255,255,0.58);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .paper {
+      background: var(--paper);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* ========================================= */
+    /* SCROLL REVEAL ANIMATION                   */
+    /* Elements start hidden and reveal on view  */
+    /* ========================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+
+    .reveal.reveal-left {
+      transform: translateX(-46px);
+    }
+
+    .reveal.reveal-right {
+      transform: translateX(46px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* ========================================= */
+    /* NAVIGATION                                */
+    /* Fixed top bar, becomes solid on scroll    */
+    /* ========================================= */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      z-index: 1000;
+      transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+    }
+
+    .site-nav.scrolled {
+      background: rgba(106, 112, 89, 0.74);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .site-nav .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      color: var(--white);
+      font-size: 1rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      color: var(--white);
+      font-size: 1.4rem;
+    }
+
+    /* ========================================= */
+    /* HERO SECTION                              */
+    /* Opening full-screen section with parallax */
+    /* ========================================= */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to bottom, rgba(34, 28, 24, 0.32), rgba(34, 28, 24, 0.62)),
+        url("https://images.unsplash.com/photo-1525258946800-98cfd641d0de?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.08);
+      will-change: transform;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(900px, calc(100% - 2rem));
+      padding-top: 3rem;
+      animation: heroFade 1.35s ease forwards;
+    }
+
+    .hero-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.45em;
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .hero-names {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .floating-note {
+      position: absolute;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      background: rgba(247, 241, 231, 0.8);
+      border: 1px solid rgba(255,255,255,0.45);
+      box-shadow: var(--shadow-soft);
+      color: rgba(67, 61, 54, 0.82);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .note-1 { top: 22%; left: 7%; transform: rotate(-7deg); }
+    .note-2 { top: 62%; right: 6%; transform: rotate(8deg); }
+    .note-3 { bottom: 14%; left: 12%; transform: rotate(-5deg); }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255,255,255,0.88);
+      font-size: 2rem;
+      animation: bob 1.8s infinite ease-in-out;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 8px); }
+    }
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========================================= */
+    /* STORY SECTION                             */
+    /* Timeline-inspired scrapbook layout        */
+    /* ========================================= */
+    .story-section {
+      background: linear-gradient(180deg, #f0e2df 0%, #f4ece6 100%);
+    }
+
+    .story-grid {
+      display: grid;
+      gap: 5rem;
+    }
+
+    .story-block {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .story-block:nth-child(even) .story-media {
+      order: 2;
+    }
+
+    .story-media {
+      position: relative;
+    }
+
+    .photo-frame {
+      padding: 14px;
+      background: var(--paper);
+      border: 1px solid rgba(255,255,255,0.75);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .tilt-left { transform: rotate(-3deg); }
+    .tilt-right { transform: rotate(2deg); }
+    .tilt-soft { transform: rotate(-1.5deg); }
+
+    .photo-tag {
+      position: absolute;
+      left: 28px;
+      bottom: -14px;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      background: rgba(248, 243, 234, 0.92);
+      box-shadow: var(--shadow-soft);
+      letter-spacing: 0.24em;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      color: rgba(67, 61, 54, 0.72);
+    }
+
+    .story-copy-card {
+      padding: 2.4rem;
+    }
+
+    .story-copy-card h3 {
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      line-height: 0.96;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .story-copy-card p {
+      font-size: 1.1rem;
+      color: rgba(67, 61, 54, 0.82);
+    }
+
+    .divider {
+      width: 90px;
+      height: 1px;
+      background: rgba(67, 61, 54, 0.22);
+      margin-top: 1.3rem;
+    }
+
+    /* ========================================= */
+    /* PARTY SECTION                             */
+    /* Portrait cards with scrapbook layering    */
+    /* ========================================= */
+    .party-section {
+      background: linear-gradient(180deg, var(--sage), var(--olive));
+      color: var(--paper);
+    }
+
+    .party-section .eyebrow,
+    .party-section .section-copy {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .party-grid {
+      display: grid;
+      gap: 1.6rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .party-card {
+      padding: 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 28px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .party-card:nth-child(odd) {
+      transform: rotate(-1.2deg);
+    }
+
+    .party-card:nth-child(even) {
+      transform: rotate(1deg);
+    }
+
+    .party-card:hover {
+      transform: translateY(-8px) rotate(0deg);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.18);
+    }
+
+    .party-card .frame {
+      background: var(--paper);
+      padding: 12px;
+      border-radius: 22px;
+    }
+
+    .party-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .party-card h3 {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 2rem;
+      font-style: italic;
+      color: var(--paper);
+    }
+
+    .party-card p {
+      text-align: center;
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.66);
+    }
+
+    /* ========================================= */
+    /* DRESS CODE SECTION                        */
+    /* Palette swatches + attire guidance        */
+    /* ========================================= */
+    .dress-section {
+      background: linear-gradient(180deg, #f0e6d9, #f8f3ea);
+    }
+
+    .dress-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.8rem;
+    }
+
+    .dress-card,
+    .palette-card {
+      padding: 2.3rem;
+    }
+
+    .dress-card h3,
+    .palette-card h3,
+    .info-card h3,
+    .rsvp-text h3,
+    .rsvp-stationery h3 {
+      font-size: 3rem;
+      font-style: italic;
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .dress-columns {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .dress-columns h4 {
+      font-size: 1.8rem;
+      margin-bottom: 0.45rem;
+      font-style: italic;
+    }
+
+    .dress-columns p,
+    .dress-card > p,
+    .palette-card > p,
+    .info-card > p,
+    .faq-answer,
+    .rsvp-text p,
+    .rsvp-stationery p {
+      font-size: 1.06rem;
+      color: rgba(67, 61, 54, 0.82);
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 1.4rem;
+    }
+
+    .swatch {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .swatch-color {
+      height: 112px;
+      border-radius: 24px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
+    }
+
+    .swatch span {
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(67, 61, 54, 0.66);
+    }
+
+    /* ========================================= */
+    /* MENU + LOCATION SECTION                   */
+    /* Two-column practical info block           */
+    /* ========================================= */
+    .info-section {
+      background: linear-gradient(180deg, var(--cream), #f3ece3);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .info-card {
+      padding: 2.3rem;
+    }
+
+    .mini-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(67, 61, 54, 0.62);
+      margin-bottom: 1rem;
+    }
+
+    .menu-list {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.15rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.62);
+    }
+
+    .map-placeholder {
+      margin-top: 1.5rem;
+      min-height: 300px;
+      border-radius: 26px;
+      border: 1px dashed rgba(67, 61, 54, 0.26);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.45), rgba(255,255,255,0.12));
+      color: rgba(67, 61, 54, 0.68);
+      padding: 1.25rem;
+    }
+
+    /* ========================================= */
+    /* FAQ SECTION                               */
+    /* Accordion with JS-controlled height       */
+    /* ========================================= */
+    .faq-section {
+      background: linear-gradient(180deg, #e8d8d5, #efe5dd);
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .faq-item {
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.5);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.45rem;
+      font-size: 1.45rem;
+    }
+
+    .faq-icon {
+      font-size: 1.5rem;
+      color: rgba(67, 61, 54, 0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer-wrap {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-answer {
+      padding: 0 1.45rem 1.4rem;
+    }
+
+    /* ========================================= */
+    /* RSVP SECTION                              */
+    /* Layered stationery-inspired final block   */
+    /* ========================================= */
+    .rsvp-section {
+      background: linear-gradient(180deg, var(--olive), #5d624d);
+      color: var(--paper);
+      overflow: hidden;
+    }
+
+    .rsvp-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .rsvp-text .eyebrow,
+    .rsvp-text p,
+    .rsvp-date {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .rsvp-date {
+      margin-top: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.82rem;
+    }
+
+    .rsvp-stationery {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .stationery-back,
+    .stationery-mid,
+    .stationery-front {
+      position: absolute;
+      border-radius: 34px;
+      box-shadow: 0 26px 60px rgba(0,0,0,0.18);
+    }
+
+    .stationery-back {
+      width: 320px;
+      height: 400px;
+      background: #f1e3df;
+      left: 40px;
+      top: 10px;
+      transform: rotate(-8deg);
+    }
+
+    .stationery-mid {
+      width: 230px;
+      height: 260px;
+      background: #dfd2c4;
+      right: 12px;
+      top: 80px;
+      transform: rotate(10deg);
+      border: 1px solid rgba(255,255,255,0.38);
+    }
+
+    .stationery-front {
+      position: relative;
+      width: min(100%, 520px);
+      min-height: 430px;
+      background: var(--paper);
+      color: var(--text);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.28);
+      margin-left: auto;
+      top: 40px;
+    }
+
+    .stationery-front .mini-eyebrow {
+      color: rgba(67, 61, 54, 0.58);
+    }
+
+    .inner-note {
+      margin-top: 1.4rem;
+      padding: 1.3rem;
+      border-radius: 22px;
+      background: rgba(234, 216, 212, 0.45);
+    }
+
+    .wax-seal {
+      position: absolute;
+      right: 26px;
+      bottom: -24px;
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: #d7b9b3;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-size: 1.3rem;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+    }
+
+    /* ========================================= */
+    /* FOOTER                                    */
+    /* ========================================= */
+    .site-footer {
+      padding: 1.4rem 0 2.2rem;
+      text-align: center;
+      background: #575c49;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ========================================= */
+    /* MOBILE NAVIGATION                         */
+    /* ========================================= */
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: var(--nav-height);
+        left: 1rem;
+        right: 1rem;
+        display: grid;
+        gap: 0;
+        background: rgba(106, 112, 89, 0.92);
+        backdrop-filter: blur(14px);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+        max-height: 0;
+        transition: max-height 0.35s ease;
+      }
+
+      .nav-links.open {
+        max-height: 420px;
+      }
+
+      .nav-links a {
+        padding: 1rem 1.2rem;
+      }
+
+      .story-block,
+      .dress-grid,
+      .info-grid,
+      .rsvp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-block:nth-child(even) .story-media {
+        order: 0;
+      }
+
+      .party-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .floating-note {
+        display: none;
+      }
+    }
+
+    /* ========================================= */
+    /* SMALL TABLET / LARGE PHONE                */
+    /* ========================================= */
+    @media (max-width: 700px) {
+      .section {
+        padding: 88px 0;
+      }
+
+      .hero-copy,
+      .section-copy,
+      .story-copy-card p,
+      .dress-columns p,
+      .dress-card > p,
+      .palette-card > p,
+      .info-card > p,
+      .faq-answer,
+      .rsvp-text p,
+      .rsvp-stationery p {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .party-grid,
+      .swatches,
+      .dress-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-frame img {
+        height: 320px;
+      }
+
+      .party-card img {
+        height: 260px;
+      }
+
+      .stationery-back,
+      .stationery-mid {
+        display: none;
+      }
+
+      .stationery-front {
+        top: 0;
+      }
+    }
+
+    /* ========================================= */
+    /* EXTRA SMALL PHONES                        */
+    /* ========================================= */
+    @media (max-width: 520px) {
+      .hero-title {
+        font-size: 3.35rem;
+      }
+
+      .hero-names {
+        font-size: 1.4rem;
+        letter-spacing: 0.12em;
+      }
+
+      .section-title {
+        line-height: 1.05;
+      }
+
+      .story-copy-card,
+      .dress-card,
+      .palette-card,
+      .info-card,
+      .stationery-front {
+        padding: 1.45rem;
+      }
+
+      .faq-question {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========================================= -->
+  <!-- SOFT BACKGROUND DECORATION                -->
+  <!-- ========================================= -->
+  <div class="page-blur"></div>
+
+  <!-- ========================================= -->
+  <!-- NAVIGATION                                -->
+  <!-- Fixed top nav with mobile toggle          -->
+  <!-- ========================================= -->
+  <header class="site-nav" id="siteNav">
+    <div class="container">
+      <a href="#home" class="brand">E &amp; A</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#story">Our Story</a>
+        <a href="#party">Our Party</a>
+        <a href="#dress-code">Dress Code</a>
+        <a href="#faq">FAQ</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================= -->
+  <!-- HERO SECTION                              -->
+  <!-- Displays the opening couple image         -->
+  <!-- and main wedding title                    -->
+  <!-- ========================================= -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+
+    <div class="floating-note note-1">details coming soon</div>
+    <div class="floating-note note-2">menu to be confirmed</div>
+    <div class="floating-note note-3">romantic scrapbook style</div>
+
+    <div class="hero-content">
+      <p class="hero-kicker">A romantic wedding story</p>
+      <h1 class="hero-title script">Our Love Story</h1>
+      <p class="hero-names">Eilidh &amp; Ally</p>
+      <p class="hero-copy">
+        A premium single-page wedding website with elegant scrolling, cinematic transitions,
+        and beautiful placeholders ready to be replaced with real details later.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-outline" href="#story">Our Story</a>
+        <a class="btn btn-primary" href="#rsvp">RSVP Here</a>
+      </div>
+    </div>
+
+    <a href="#story" class="scroll-cue" aria-label="Scroll down">⌄</a>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- OUR STORY SECTION                         -->
+  <!-- Scrapbook-style timeline layout           -->
+  <!-- ========================================= -->
+  <section class="section story-section" id="story">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Our Story</p>
+        <h2 class="section-title">A scrapbook of moments</h2>
+        <p class="section-copy" style="margin: 0 auto;">
+          Designed as a romantic storytelling timeline, this section uses placeholder text for now
+          while still feeling elegant, complete, and visually rich.
+        </p>
+      </div>
+
+      <div class="story-grid">
+        <article class="story-block">
+          <div class="story-media reveal reveal-left">
+            <div class="photo-frame tilt-left">
+              <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80" alt="Romantic placeholder couple photo">
+            </div>
+            <div class="photo-tag">Chapter One</div>
+          </div>
+
+          <div class="story-copy-card card reveal reveal-right">
+            <p class="eyebrow">Chapter One</p>
+            <h3>How We Met</h3>
+            <p>
+              This is a placeholder space for the beginning of Eilidh and Ally’s story. You can replace this later
+              with the real details of how they met, what drew them together, and the first memories they want to share.
+            </p>
+            <div class="divider"></div>
+          </div>
+        </article>
+
+        <article class="story-block">
+          <div class="story-media reveal reveal-right">
+            <div class="photo-frame tilt-right">
+              <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80" alt="Placeholder engagement style photo">
+            </div>
+            <div class="photo-tag">Chapter Two</div>
+          </div>
+
+          <div class="story-copy-card card reveal reveal-left">
+            <p class="eyebrow">Chapter Two</p>
+            <h3>Define the Relationship</h3>
+            <p>
+              Use this section for an important turning point, a favourite memory, or the story of when everything became real.
+              The layout is intentionally cinematic so the page still looks finished before final text is added.
+            </p>
+            <div class="divider"></div>
+          </div>
+        </article>
+
+        <article class="story-block">
+          <div class="story-media reveal reveal-left">
+            <div class="photo-frame tilt-soft">
+              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80" alt="Placeholder romantic proposal image">
+            </div>
+            <div class="photo-tag">Chapter Three</div>
+          </div>
+
+          <div class="story-copy-card card reveal reveal-right">
+            <p class="eyebrow">Chapter Three</p>
+            <h3>The Proposal</h3>
+            <p>
+              This section is ready for a proposal story, a meaningful moment, or a note from the couple.
+              Keep it sweet, emotional, funny, or simple — the design will support whatever tone they choose later.
+            </p>
+            <div class="divider"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- WEDDING PARTY SECTION                     -->
+  <!-- Portrait cards for friends and family     -->
+  <!-- ========================================= -->
+  <section class="section party-section" id="party">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Our Party</p>
+        <h2 class="section-title">The people we love most</h2>
+        <p class="section-copy" style="margin: 0 auto;">
+          Replace these placeholders later with real photos and names for bridesmaids, close friends,
+          family members, or anyone special in the celebration.
+        </p>
+      </div>
+
+      <div class="party-grid">
+        <article class="party-card reveal">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=80" alt="Placeholder wedding party member">
+          </div>
+          <h3>Bridesmaid One</h3>
+          <p>Placeholder Member</p>
+        </article>
+
+        <article class="party-card reveal">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=1000&q=80" alt="Placeholder wedding party member">
+          </div>
+          <h3>Bridesmaid Two</h3>
+          <p>Placeholder Member</p>
+        </article>
+
+        <article class="party-card reveal">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=1000&q=80" alt="Placeholder wedding party member">
+          </div>
+          <h3>Bridesmaid Three</h3>
+          <p>Placeholder Member</p>
+        </article>
+
+        <article class="party-card reveal">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=80" alt="Placeholder wedding party member">
+          </div>
+          <h3>Best Friend One</h3>
+          <p>Placeholder Member</p>
+        </article>
+
+        <article class="party-card reveal">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=1000&q=80" alt="Placeholder wedding party member">
+          </div>
+          <h3>Best Friend Two</h3>
+          <p>Placeholder Member</p>
+        </article>
+
+        <article class="party-card reveal">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=1000&q=80" alt="Placeholder wedding party member">
+          </div>
+          <h3>Best Friend Three</h3>
+          <p>Placeholder Member</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- DRESS CODE SECTION                        -->
+  <!-- Guidance cards and colour palette         -->
+  <!-- ========================================= -->
+  <section class="section dress-section" id="dress-code">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Dress Code</p>
+        <h2 class="section-title script">The Dress Code</h2>
+        <p class="section-copy" style="margin: 0 auto;">
+          Elegant placeholder guidance for now. This section can later be updated with exact styling,
+          formality, colour direction, and guest advice.
+        </p>
+      </div>
+
+      <div class="dress-grid">
+        <div class="dress-card card reveal reveal-left">
+          <p class="mini-eyebrow">Formal Garden Attire</p>
+          <h3>What to Wear</h3>
+          <p>
+            Please avoid white, ivory, and anything bridal in tone or silhouette. Final dress code details will be added
+            later, including how formal the wedding will be and any venue-specific notes.
+          </p>
+
+          <div class="dress-columns">
+            <div>
+              <h4>For the Gentlemen</h4>
+              <p>
+                Placeholder guidance for jackets, suits, tailoring, and softer romantic colour choices.
+                This can be replaced with clear final suggestions later.
+              </p>
+            </div>
+
+            <div>
+              <h4>For the Ladies</h4>
+              <p>
+                Placeholder guidance for elegant dresses, refined styling, comfortable shoes, and suitable colour choices.
+                Update this once the final look is decided.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="palette-card card reveal reveal-right">
+          <p class="mini-eyebrow">Palette Inspiration</p>
+          <h3>Suggested Tones</h3>
+          <p>
+            These swatches help the section feel complete now and can stay as inspiration even after final dress code details are added.
+          </p>
+
+          <div class="swatches">
+            <div class="swatch">
+              <div class="swatch-color" style="background:#d9d3c7;"></div>
+              <span>Cream</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#c7c1ac;"></div>
+              <span>Warm Beige</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#8b8f73;"></div>
+              <span>Sage</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#6f705f;"></div>
+              <span>Olive</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#e8d8d5;"></div>
+              <span>Blush</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background:#b8b09b;"></div>
+              <span>Stone</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- DINING / LOCATION SECTION                 -->
+  <!-- Practical placeholder information         -->
+  <!-- ========================================= -->
+  <section class="section info-section">
+    <div class="container info-grid">
+      <article class="info-card card reveal reveal-left">
+        <p class="mini-eyebrow">Dining / Menu</p>
+        <h3>A Table To Be Set</h3>
+        <p>
+          Menu information is not available yet, so this section uses polished placeholders to preserve the design.
+        </p>
+
+        <div class="menu-list">
+          <div class="menu-item"><span>Starter</span><span>Coming soon</span></div>
+          <div class="menu-item"><span>Main Course</span><span>To be confirmed</span></div>
+          <div class="menu-item"><span>Dessert</span><span>Details coming soon</span></div>
+          <div class="menu-item"><span>Drinks</span><span>Information later</span></div>
+        </div>
+      </article>
+
+      <article class="info-card card reveal reveal-right" id="location">
+        <p class="mini-eyebrow">Location</p>
+        <h3>Where The Day Unfolds</h3>
+        <p>
+          Venue details and map information will be added soon. This area is ready for an embedded map,
+          venue photo, directions, and travel notes later.
+        </p>
+
+        <div class="map-placeholder">
+          <div>
+            <strong style="display:block; margin-bottom:0.5rem; font-size:1.2rem;">Placeholder map area</strong>
+            Venue details will be added soon.
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- FAQ SECTION                               -->
+  <!-- Accordion with placeholder answers        -->
+  <!-- ========================================= -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="section-title">A few helpful details</h2>
+        <p class="section-copy" style="margin: 0 auto;">
+          This section is prepared for travel details, guest questions, and practical information once the wedding logistics are confirmed.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal active">
+          <button class="faq-question" type="button">
+            <span>When should guests arrive?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-wrap" style="max-height: 140px;">
+            <div class="faq-answer">
+              Arrival details will be added soon. Please check back later for the final schedule and recommended guest arrival time.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" type="button">
+            <span>Can I bring a plus one?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              Plus-one information will be confirmed at a later date once invitations and final guest arrangements are complete.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" type="button">
+            <span>Is there parking?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              Parking and transport information will be added soon together with location guidance and travel notes.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" type="button">
+            <span>Where should we stay?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer">
+              Accommodation ideas and nearby hotel recommendations will be added later once final plans are confirmed.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- RSVP SECTION                              -->
+  <!-- Layered wedding stationery look           -->
+  <!-- ========================================= -->
+  <section class="section rsvp-section" id="rsvp">
+    <div class="container rsvp-grid">
+      <div class="rsvp-text reveal reveal-left">
+        <p class="eyebrow">RSVP</p>
+        <h2 class="section-title">We’re Getting Married</h2>
+        <p>
+          RSVP details, attendance information, and any dietary request form can be added here later.
+          For now, this section acts as a beautifully styled placeholder so the site still feels complete.
+        </p>
+        <p class="rsvp-date">RSVP by date coming soon</p>
+      </div>
+
+      <div class="rsvp-stationery reveal reveal-right">
+        <div class="stationery-back"></div>
+        <div class="stationery-mid"></div>
+
+        <div class="stationery-front">
+          <p class="mini-eyebrow">Invitation Card</p>
+          <h3>RSVP By</h3>
+          <p style="text-transform:uppercase; letter-spacing:0.22em; font-size:0.82rem; color:rgba(67,61,54,0.62);">Date coming soon</p>
+
+          <div class="inner-note">
+            <p>
+              A final RSVP link, form, or button destination can be added here later.
+              You can connect this to a Google Form, another page, or a guest response tool.
+            </p>
+          </div>
+
+          <a href="#" class="btn btn-primary" style="margin-top:1.5rem;">RSVP Here</a>
+
+          <div class="wax-seal">♥</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- FOOTER                                    -->
+  <!-- ========================================= -->
+  <footer class="site-footer">
+    Eilidh &amp; Ally &mdash; Wedding Website Placeholder
+  </footer>
+
+  <script>
+    /* ========================================= */
+    /* NAVBAR SCROLL STATE                       */
+    /* Adds solid background when page scrolls   */
+    /* ========================================= */
+    const siteNav = document.getElementById('siteNav');
+
+    function updateNavOnScroll() {
+      if (window.scrollY > 30) {
+        siteNav.classList.add('scrolled');
+      } else {
+        siteNav.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', updateNavOnScroll);
+    updateNavOnScroll();
+
+    /* ========================================= */
+    /* MOBILE MENU TOGGLE                        */
+    /* Opens and closes the small-screen nav     */
+    /* ========================================= */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    /* ========================================= */
+    /* SCROLL REVEAL ANIMATIONS                  */
+    /* Uses Intersection Observer to reveal      */
+    /* elements as they enter the viewport       */
+    /* ========================================= */
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    /* ========================================= */
+    /* HERO PARALLAX EFFECT                      */
+    /* Moves the background slightly on scroll   */
+    /* ========================================= */
+    const heroBg = document.getElementById('heroBg');
+
+    function updateHeroParallax() {
+      const scrollAmount = window.scrollY;
+      const movement = scrollAmount * 0.12;
+      heroBg.style.transform = `scale(1.08) translateY(${movement}px)`;
+    }
+
+    window.addEventListener('scroll', updateHeroParallax);
+    updateHeroParallax();
+
+    /* ========================================= */
+    /* FAQ ACCORDION                             */
+    /* Expands one answer at a time              */
+    /* ========================================= */
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const button = item.querySelector('.faq-question');
+      const answerWrap = item.querySelector('.faq-answer-wrap');
+      const answer = item.querySelector('.faq-answer');
+
+      button.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+          const otherWrap = otherItem.querySelector('.faq-answer-wrap');
+          otherWrap.style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          answerWrap.style.maxHeight = answer.scrollHeight + 24 + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
