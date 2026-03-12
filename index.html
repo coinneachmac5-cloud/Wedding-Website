@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eilidh & Ally | Our Love Story</title>
   <meta name="description" content="A romantic wedding website for Eilidh and Ally with elegant scroll animations and scrapbook-inspired styling." />
-
-  <!-- ========================================= -->
-  <!-- GOOGLE FONTS                               -->
-  <!-- Script font for headings, serif for body  -->
-  <!-- ========================================= -->
+  <!-- No Peaking-->
+  <!-- GOOGLE FONTS-->
+  <!-- Script font for headings, serif for body-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    /* ========================================= */
-    /* ROOT VARIABLES / COLOUR SYSTEM            */
-    /* Easy place to update the whole palette    */
-    /* ========================================= */
+    /*ROOT VARIABLES/COLOUR SYSTEM*/
+    /*Easy place to update the whole palette*/
     :root {
       --sage: #7f866d;
       --olive: #6a7059;
@@ -39,10 +35,6 @@
       --nav-height: 80px;
       --transition: 0.75s cubic-bezier(.22, 1, .36, 1);
     }
-
-    /* ========================================= */
-    /* BASE / RESET                              */
-    /* ========================================= */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -80,11 +72,6 @@
       border: none;
       cursor: pointer;
     }
-
-    /* ========================================= */
-    /* GLOBAL DECORATIVE BACKGROUND BLOBS        */
-    /* Soft blurred colour shapes for atmosphere */
-    /* ========================================= */
     .page-blur {
       position: fixed;
       inset: 0;
@@ -118,9 +105,6 @@
       right: -100px;
     }
 
-    /* ========================================= */
-    /* UTILITIES                                 */
-    /* ========================================= */
     .container {
       width: min(var(--max-width), calc(100% - 2rem));
       margin: 0 auto;
@@ -213,11 +197,8 @@
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-soft);
     }
-
-    /* ========================================= */
-    /* SCROLL REVEAL ANIMATION                   */
-    /* Elements start hidden and reveal on view  */
-    /* ========================================= */
+    /*SCROLL REVEAL ANIMATION*/
+    /*Elements start hidden and reveal on view*/
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -236,11 +217,7 @@
       opacity: 1;
       transform: translate(0, 0);
     }
-
-    /* ========================================= */
-    /* NAVIGATION                                */
-    /* Fixed top bar, becomes solid on scroll    */
-    /* ========================================= */
+    /* NAVIGATION*/
     .site-nav {
       position: fixed;
       top: 0;
@@ -311,10 +288,8 @@
       font-size: 1.4rem;
     }
 
-    /* ========================================= */
-    /* HERO SECTION                              */
-    /* Opening full-screen section with parallax */
-    /* ========================================= */
+    /*HERO SECTION*/
+    /*HERO = MAIN SEGMENT*/
     .hero {
       min-height: 100vh;
       position: relative;
@@ -427,10 +402,8 @@
       }
     }
 
-    /* ========================================= */
-    /* STORY SECTION                             */
-    /* Timeline-inspired scrapbook layout        */
-    /* ========================================= */
+    /*STORY SECTION*/
+    /*Timeline-inspired scrapbook layout*/
     .story-section {
       background: linear-gradient(180deg, #f0e2df 0%, #f4ece6 100%);
     }
@@ -511,10 +484,8 @@
       margin-top: 1.3rem;
     }
 
-    /* ========================================= */
-    /* PARTY SECTION                             */
-    /* Portrait cards with scrapbook layering    */
-    /* ========================================= */
+    /* PARTY SECTION */
+    /* Portrait cards with scrapbook layering */
     .party-section {
       background: linear-gradient(180deg, var(--sage), var(--olive));
       color: var(--paper);
@@ -584,10 +555,8 @@
       color: rgba(255,255,255,0.66);
     }
 
-    /* ========================================= */
-    /* DRESS CODE SECTION                        */
-    /* Palette swatches + attire guidance        */
-    /* ========================================= */
+    /*DRESS CODE SECTION*/
+    /*Palette swatches + attire guidance*/
     .dress-section {
       background: linear-gradient(180deg, #f0e6d9, #f8f3ea);
     }
@@ -664,10 +633,9 @@
       color: rgba(67, 61, 54, 0.66);
     }
 
-    /* ========================================= */
-    /* MENU + LOCATION SECTION                   */
-    /* Two-column practical info block           */
-    /* ========================================= */
+    /* MENU + LOCATION SECTION */
+    /* Two-column practical info block*/
+
     .info-section {
       background: linear-gradient(180deg, var(--cream), #f3ece3);
     }
@@ -719,10 +687,7 @@
       padding: 1.25rem;
     }
 
-    /* ========================================= */
-    /* FAQ SECTION                               */
-    /* Accordion with JS-controlled height       */
-    /* ========================================= */
+    /* FAQ SECTION */
     .faq-section {
       background: linear-gradient(180deg, #e8d8d5, #efe5dd);
     }
@@ -774,11 +739,7 @@
     .faq-answer {
       padding: 0 1.45rem 1.4rem;
     }
-
-    /* ========================================= */
     /* RSVP SECTION                              */
-    /* Layered stationery-inspired final block   */
-    /* ========================================= */
     .rsvp-section {
       background: linear-gradient(180deg, var(--olive), #5d624d);
       color: var(--paper);
@@ -875,9 +836,7 @@
       box-shadow: 0 14px 30px rgba(0,0,0,0.18);
     }
 
-    /* ========================================= */
-    /* FOOTER                                    */
-    /* ========================================= */
+    /* FOOTER */
     .site-footer {
       padding: 1.4rem 0 2.2rem;
       text-align: center;
@@ -888,9 +847,7 @@
       text-transform: uppercase;
     }
 
-    /* ========================================= */
-    /* MOBILE NAVIGATION                         */
-    /* ========================================= */
+    /* MOBILE NAVIGATION */
     @media (max-width: 900px) {
       .nav-toggle {
         display: block;
@@ -940,9 +897,7 @@
       }
     }
 
-    /* ========================================= */
-    /* SMALL TABLET / LARGE PHONE                */
-    /* ========================================= */
+    /* SMALL TABLET / LARGE PHONE */
     @media (max-width: 700px) {
       .section {
         padding: 88px 0;
@@ -989,9 +944,7 @@
       }
     }
 
-    /* ========================================= */
-    /* EXTRA SMALL PHONES                        */
-    /* ========================================= */
+    /* EXTRA SMALL PHONES*/
     @media (max-width: 520px) {
       .hero-title {
         font-size: 3.35rem;
@@ -1021,15 +974,11 @@
   </style>
 </head>
 <body>
-  <!-- ========================================= -->
-  <!-- SOFT BACKGROUND DECORATION                -->
-  <!-- ========================================= -->
+  <!-- SOFT BACKGROUND DECORATION-->
   <div class="page-blur"></div>
 
-  <!-- ========================================= -->
-  <!-- NAVIGATION                                -->
-  <!-- Fixed top nav with mobile toggle          -->
-  <!-- ========================================= -->
+  <!-- NAVIGATION -->
+  <!-- Fixed top nav with mobile toggle  -->
   <header class="site-nav" id="siteNav">
     <div class="container">
       <a href="#home" class="brand">E &amp; A</a>
@@ -1047,11 +996,10 @@
     </div>
   </header>
 
-  <!-- ========================================= -->
-  <!-- HERO SECTION                              -->
-  <!-- Displays the opening couple image         -->
-  <!-- and main wedding title                    -->
-  <!-- ========================================= -->
+  <!-- HERO SECTION -->
+  <!-- Displays the opening couple image -->
+  <!-- and main wedding title  -->
+  
   <section class="hero" id="home">
     <div class="hero-bg" id="heroBg"></div>
 
@@ -1076,10 +1024,9 @@
     <a href="#story" class="scroll-cue" aria-label="Scroll down">⌄</a>
   </section>
 
-  <!-- ========================================= -->
-  <!-- OUR STORY SECTION                         -->
-  <!-- Scrapbook-style timeline layout           -->
-  <!-- ========================================= -->
+  <!-- OUR STORY SECTION-->
+  <!-- Scrapbook-style timeline layout -->
+
   <section class="section story-section" id="story">
     <div class="container">
       <div class="section-header reveal">
@@ -1148,10 +1095,10 @@
     </div>
   </section>
 
-  <!-- ========================================= -->
-  <!-- WEDDING PARTY SECTION                     -->
-  <!-- Portrait cards for friends and family     -->
-  <!-- ========================================= -->
+
+  <!-- WEDDING PARTY SECTION-->
+  <!-- Portrait cards for friends and family -->
+
   <section class="section party-section" id="party">
     <div class="container">
       <div class="section-header reveal">
@@ -1214,10 +1161,9 @@
     </div>
   </section>
 
-  <!-- ========================================= -->
-  <!-- DRESS CODE SECTION                        -->
-  <!-- Guidance cards and colour palette         -->
-  <!-- ========================================= -->
+  <!-- DRESS CODE SECTION -->
+  <!-- Guidance cards and colour palette  -->
+
   <section class="section dress-section" id="dress-code">
     <div class="container">
       <div class="section-header reveal">
@@ -1293,10 +1239,9 @@
     </div>
   </section>
 
-  <!-- ========================================= -->
-  <!-- DINING / LOCATION SECTION                 -->
-  <!-- Practical placeholder information         -->
-  <!-- ========================================= -->
+  <!-- DINING / LOCATION SECTION -->
+  <!-- Practical placeholder information -->
+
   <section class="section info-section">
     <div class="container info-grid">
       <article class="info-card card reveal reveal-left">
@@ -1331,10 +1276,9 @@
     </div>
   </section>
 
-  <!-- ========================================= -->
-  <!-- FAQ SECTION                               -->
-  <!-- Accordion with placeholder answers        -->
-  <!-- ========================================= -->
+  <!-- FAQ SECTION  -->
+  <!-- Accordion with placeholder answers -->
+  
   <section class="section faq-section" id="faq">
     <div class="container">
       <div class="section-header reveal">
@@ -1397,10 +1341,9 @@
     </div>
   </section>
 
-  <!-- ========================================= -->
-  <!-- RSVP SECTION                              -->
-  <!-- Layered wedding stationery look           -->
-  <!-- ========================================= -->
+  <!-- RSVP SECTIOn  -->
+  <!-- Layered wedding stationery look  -->
+
   <section class="section rsvp-section" id="rsvp">
     <div class="container rsvp-grid">
       <div class="rsvp-text reveal reveal-left">
@@ -1436,18 +1379,14 @@
     </div>
   </section>
 
-  <!-- ========================================= -->
-  <!-- FOOTER                                    -->
-  <!-- ========================================= -->
+  <!-- FOOTER-->
+
   <footer class="site-footer">
     Eilidh &amp; Ally &mdash; Wedding Website Placeholder
   </footer>
 
   <script>
-    /* ========================================= */
-    /* NAVBAR SCROLL STATE                       */
-    /* Adds solid background when page scrolls   */
-    /* ========================================= */
+    /* NAVBAR SCROLL STATE*/
     const siteNav = document.getElementById('siteNav');
 
     function updateNavOnScroll() {
@@ -1461,10 +1400,8 @@
     window.addEventListener('scroll', updateNavOnScroll);
     updateNavOnScroll();
 
-    /* ========================================= */
-    /* MOBILE MENU TOGGLE                        */
-    /* Opens and closes the small-screen nav     */
-    /* ========================================= */
+    /* MOBILE MENU TOGGLE */
+    /* Opens and closes the small-screen nav*/
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -1478,11 +1415,9 @@
       });
     });
 
-    /* ========================================= */
-    /* SCROLL REVEAL ANIMATIONS                  */
-    /* Uses Intersection Observer to reveal      */
-    /* elements as they enter the viewport       */
-    /* ========================================= */
+    /* SCROLL REVEAL ANIMATIONS */
+    /* Uses Intersection Observer to reveal */
+    /* elements as they enter the viewport */
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -1501,10 +1436,8 @@
       revealObserver.observe(element);
     });
 
-    /* ========================================= */
-    /* HERO PARALLAX EFFECT                      */
+    /* HERO PARALLAX EFFECT */
     /* Moves the background slightly on scroll   */
-    /* ========================================= */
     const heroBg = document.getElementById('heroBg');
 
     function updateHeroParallax() {
@@ -1516,10 +1449,9 @@
     window.addEventListener('scroll', updateHeroParallax);
     updateHeroParallax();
 
-    /* ========================================= */
-    /* FAQ ACCORDION                             */
-    /* Expands one answer at a time              */
-    /* ========================================= */
+    /* FAQ ACCORDION*/
+    /* Expands one answer at a time */
+
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
